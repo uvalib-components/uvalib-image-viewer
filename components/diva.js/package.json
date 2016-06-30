@@ -1,0 +1,78 @@
+{
+  "name": "diva.js",
+  "version": "4.1.0",
+  "description": "Diva.js is a JavaScript document image viewer designed to present multi-page documents at high resolutions.",
+  "main": "build/js/diva.min.js",
+  "directories": {
+    "test": "tests"
+  },
+  "jspm": {
+    "files": [
+      "build"
+    ],
+    "ignore": [
+      "gulpfile.js"
+    ]
+  },
+  "scripts": {
+    "test": "gulp develop:test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DDMAL/diva.js.git"
+  },
+  "keywords": [
+    "images",
+    "iip",
+    "documents",
+    "libraries",
+    "archives"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  },
+  "devDependencies": {
+    "archiver": "^0.14.4",
+    "chalk": "^0.5.1",
+    "connect": "^3.3.5",
+    "connect-livereload": "^0.5.3",
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-jshint": "^1.11.0",
+    "gulp-less": "^3.0.3",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.0",
+    "jshint-stylish": "^2.0.0",
+    "less": "~2.4.0",
+    "phantomjs-prebuilt": "^2.1.3",
+    "serve-index": "^1.7.0",
+    "serve-static": "^1.9.3",
+    "through2": "^0.6.1",
+    "yargs": "^3.11.0"
+  },
+  "author": "Andrew Hankinson",
+  "contributors": [
+    {
+      "name": "Evan Magoni"
+    },
+    {
+      "name": "Wendy Liu"
+    },
+    {
+      "name": "Andrew Horwitz"
+    },
+    {
+      "name": "Laurent Pugin"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DDMAL/diva.js/issues"
+  },
+  "homepage": "https://github.com/DDMAL/diva.js"
+}

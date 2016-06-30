@@ -1,0 +1,14 @@
+{
+  "name": "diva.js",
+  "homepage": "https://github.com/ddmal/diva.js",
+  "version": "4.1.0",
+  "_release": "4.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v4.1.0",
+    "commit": "c11cd1317f4c6cedc147c12008ba2aee211d0472"
+  },
+  "_source": "git://github.com/ddmal/diva.js.git",
+  "_target": "^4.1.0",
+  "_originalSource": "ddmal/diva.js"
+}
