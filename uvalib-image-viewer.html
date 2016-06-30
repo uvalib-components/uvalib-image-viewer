@@ -13,17 +13,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <script src="../diva.js/build/js/diva.min.js"></script>
 
 <!--
-An element providing a solution to no problem in particular.
+An element providing a diva.js based image view component.
 
 Example:
 
-    <uvalib-image-viewer></uvalib-image-viewer>
-
-Example:
-
-    <uvalib-image-viewer>
-      <h2>Hello uvalib-image-viewer</h2>
-    </uvalib-image-viewer>
+    <uvalib-image-viewer image-id="uva-lib:2137385"></uvalib-image-viewer>
 
 @demo demo/index.html
 @hero hero.svg
@@ -42,7 +36,7 @@ Example:
 
     </style>
 
-    <div id="diva-wrapper"></div>
+    <div id="divawrapper"></div>
   </template>
 
   <script>
@@ -50,13 +44,17 @@ Example:
       is: 'uvalib-image-viewer',
 
       properties: {
+        /**
+         * The UVA Library id of the digital image to be viewed
+         */
         imageId: String
       },
 
       ready: function(){
-        $('#diva-wrapper').diva({
+        $(this.$.divawrapper).diva({
           objectData: "https://api.library.virginia.edu/searchdev/catalog/"+this.imageId+"/iiif/manifest.json"
         });
+        console.log('foo');
       }
 
     });
