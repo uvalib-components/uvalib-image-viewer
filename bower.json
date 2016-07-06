@@ -20,7 +20,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
     "diva.js": "ddmal/diva.js#^4.1.0",
-    "jquery": "^3.0.0"
+    "jquery": "^3.0.0",
+    "openseadragon": "^2.2.1"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
