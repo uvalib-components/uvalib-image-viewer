@@ -1,0 +1,63 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="stylesheet" href="../lightgallery.js/dist/css/lightgallery.min.css"></script>
+<script src="../lightgallery.js/dist/js/lightgallery.min.js"></script>
+<script src="../lg-thumbnail.js/dist/lg-thumbnail.min.js"></script>
+<script src="../lg-fullscreen.js/dist/lg-fullscreen.min.js"></script>
+
+<dom-module id="uvalib-imageviewer">
+
+  <template>
+    <style>
+      :host {
+        display: none;
+      }
+    </style>
+    <div id="dynamic"></div>
+  </template>
+
+  <script>
+    /**
+     * `uvalib-imageviewer`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class UvalibImageviewer extends Polymer.Element {
+      static get is() { return 'uvalib-imageviewer'; }
+      static get properties() {
+        return {
+          auto: {
+            type: Boolean,
+            value: false
+          },
+          slideObj: {
+            type: Array,
+            value: [{
+              'src': 'https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-1.jpg',
+              'thumb': 'https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-1.jpg',
+              'subHtml': "<div>Leather-bound miniature volume from an edition of <em>The Merchant of Venice</em> printed in the early 20th century to promote a chocolate company.<br/><em>Photo by Shane Lin.</em> </div>"
+            }, {
+              'src': 'https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-2.jpg',
+              'thumb': 'https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-2.jpg',
+              'subHtml': "<div>Leather-bound miniature volume from an edition of <em>The Merchant of Venice</em> printed in the early 20th century to promote a chocolate company.<br/><em>Photo by Shane Lin.</em> </div>"
+            }]
+          }
+        };
+      }
+      connectedCallback() {
+        super.connectedCallback();
+        if (this.auto) this.open();
+      }
+      open() {
+        lightGallery(this.shadowRoot.getElementById('dynamic'), {
+          fullScreen: false,
+          dynamic: true,
+          dynamicEl: this.slideObj});
+      }
+    }
+
+    window.customElements.define(UvalibImageviewer.is, UvalibImageviewer);
+  </script>
+</dom-module>
