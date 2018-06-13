@@ -3,6 +3,7 @@
 <script src="../lightgallery.js/dist/js/lightgallery.min.js"></script>
 <script src="../lg-thumbnail.js/dist/lg-thumbnail.min.js"></script>
 <script src="../lg-fullscreen.js/dist/lg-fullscreen.min.js"></script>
+<script src="../jsonpath-plus/lib/jsonpath-min.js"></script>
 
 <dom-module id="uvalib-imageviewer">
 
@@ -32,17 +33,17 @@
             type: Boolean,
             value: false
           },
-          slideObj: {
+          items: Object,
+          _items: {
             type: Array,
-            value: [{
-              'src': 'https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-1.jpg',
-              'thumb': 'https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-1.jpg',
-              'subHtml': "<div>Leather-bound miniature volume from an edition of <em>The Merchant of Venice</em> printed in the early 20th century to promote a chocolate company.<br/><em>Photo by Shane Lin.</em> </div>"
-            }, {
-              'src': 'https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-2.jpg',
-              'thumb': 'https://sachinchoolur.github.io/lightgallery.js/static/img/thumb-2.jpg',
-              'subHtml': "<div>Leather-bound miniature volume from an edition of <em>The Merchant of Venice</em> printed in the early 20th century to promote a chocolate company.<br/><em>Photo by Shane Lin.</em> </div>"
-            }]
+            computed: '_transItems(items)'
+          },
+          imageProp: {type:String, value:'src'},
+          thumbProp: {type:String, value:'thumb'},
+          htmlProp: {type:String, value:'subHtml'},
+          firebaseArray: {
+            type: Boolean,
+            value: false
           }
         };
       }
@@ -50,11 +51,24 @@
         super.connectedCallback();
         if (this.auto) this.open();
       }
+      _transItems(items){
+        if (items)
+          if (this.firebaseArray) {
+            items = Object.values(items);
+          }
+          return items.map(i => {
+            return {
+              src:JSONPath({path: this.imageProp, json:i})[0], //i[this.imageProp],
+              thumb:JSONPath({path: this.thumbProp, json:i})[0], //i[this.thumbProp],
+              subHtml:JSONPath({path: this.htmlProp, json:i})[0] //i[this.htmlProp]
+            };
+          });
+      }
       open() {
         lightGallery(this.shadowRoot.getElementById('dynamic'), {
           fullScreen: false,
           dynamic: true,
-          dynamicEl: this.slideObj});
+          dynamicEl: this._items});
       }
     }
 

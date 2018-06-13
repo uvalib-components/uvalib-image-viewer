@@ -11,7 +11,8 @@
     "lg-pager.js": "^1.0.0",
     "lg-zoom.js": "^1.0.1",
     "lg-hash.js": "^1.2.0",
-    "lg-share.js": "^1.2.2"
+    "lg-share.js": "^1.2.2",
+    "jsonpath-plus": "^0.13.1"
   },
   "resolutions": {
     "polymer": "^2.3.1",
