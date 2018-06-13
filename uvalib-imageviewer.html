@@ -58,9 +58,9 @@
           }
           return items.map(i => {
             return {
-              src:JSONPath({path: this.imageProp, json:i})[0], //i[this.imageProp],
-              thumb:JSONPath({path: this.thumbProp, json:i})[0], //i[this.thumbProp],
-              subHtml:JSONPath({path: this.htmlProp, json:i})[0] //i[this.htmlProp]
+              src:JSONPath({path: this.imageProp, json:i})[0],
+              thumb:JSONPath({path: this.thumbProp, json:i})[0],
+              subHtml:JSONPath({path: this.htmlProp, json:i})[0]
             };
           });
       }
