@@ -4,7 +4,25 @@
 <script src="../lg-thumbnail.js/dist/lg-thumbnail.min.js"></script>
 <script src="../lg-fullscreen.js/dist/lg-fullscreen.min.js"></script>
 <script src="../jsonpath-plus/lib/jsonpath-min.js"></script>
+<link rel="import" href="../uvalib-theme/uvalib-theme.html">
 
+
+<custom-style>
+  <style include="uvalib-theme">
+    .lg-sub-html {
+      text-align: center;
+      width: 75%;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.65);
+    }
+    .lg-sub-html p {
+      font-size: calc(var(--uvalib-spacing-unit)*1.5);
+      margin: 16px 0 0;
+      color: var(--uvalib-main-white);
+      line-height: 1.2;
+    }
+  </style>
+</custom-style>
 <dom-module id="uvalib-imageviewer">
 
   <template>
